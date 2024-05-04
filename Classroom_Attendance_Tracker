@@ -1,0 +1,40 @@
+def take_attendance(attendance_dict):
+    absent = input("Enter absent student numbers separated by commas: ").split(',')
+    for key in attendance_dict:
+        if key not in absent:
+            attendance_dict[key] += 1
+    print("\nFinal Attendance:\n", attendance_dict)
+
+def main():
+    students = ['Pratik-1', 'Vedant-2', 'Jayesh-3', 'Dnyashwar-4', 'Yash-5']
+    cfp_attendance = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0}
+    fds_attendance = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0}
+    psp_attendance = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0}
+
+    print("Initial Attendance:")
+    print("\nCFP class:\n", cfp_attendance)
+    print("\nFDS class:\n", fds_attendance)
+    print("\nPSP class:\n", psp_attendance)
+
+    total_classes = 10
+
+    for _ in range(total_classes):
+        print("\nChoose a subject:")
+        print("1. CFP class")
+        print("2. FDS class")
+        print("3. PSP class")
+
+        subject_choice = input("Enter your choice: ")
+
+        if subject_choice == '1':
+            take_attendance(cfp_attendance)
+        elif subject_choice == '2':
+            take_attendance(fds_attendance)
+        elif subject_choice == '3':
+            take_attendance(psp_attendance)
+        else:
+            print("Invalid choice. Please choose a valid subject.")
+
+if __name__ == "__main__":
+    main()
+
